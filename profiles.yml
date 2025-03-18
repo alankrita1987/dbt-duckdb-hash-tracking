@@ -1,0 +1,22 @@
+external_data:
+  outputs:
+    dev:
+      type: duckdb
+      path: dev.duckdb
+      threads: 1
+      plugins:
+        - module: dbt_duckdb.plugins.excel
+          alias: custom_excel
+        - module: excel
+      
+
+    prod:
+      type: duckdb
+      path: prod.duckdb
+      threads: 4
+      plugins:
+        - module: dbt_duckdb.plugins.excel
+          alias: custom_excel
+        - module: excel 
+
+  target: dev
